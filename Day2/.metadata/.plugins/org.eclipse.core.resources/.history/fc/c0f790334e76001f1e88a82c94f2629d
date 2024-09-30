@@ -1,0 +1,21 @@
+package com.lawencon.BookStore;
+
+public enum Book {
+	java(10000),kotlin(11000),golang(12000),python(13000);
+	
+	private int price;
+
+	private Book(int price) {
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;com.lawencon.BookStore.App.cart()&apos; to &apos;buy&apos;&#x0D;&#x0A;- Original project: &apos;BookStore&apos;&#x0D;&#x0A;- Original element: &apos;com.lawencon.BookStore.App.cart()&apos;&#x0D;&#x0A;- Renamed element: &apos;com.lawencon.BookStore.App.buy()&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;cart&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;com.lawencon.BookStore{App.java[App~cart" name="buy" references="true" stamp="1726727997226" version="1.0"/>
+</session>

@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\Kerja\Bootcamp Lawencon\Java\TakeHome\.metadata\.plugins\org.eclipse.jdt.core
+1401852914.index
+1865797976.index
+1272291651.index
+3413725848.index

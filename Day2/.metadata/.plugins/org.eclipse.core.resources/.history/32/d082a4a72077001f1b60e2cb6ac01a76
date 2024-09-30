@@ -1,0 +1,18 @@
+package com.lawencon.BookStore;
+
+import java.util.Scanner;
+
+public class ScannerUtil {
+	private static Scanner scan;
+	
+	public static int scanInt(){
+		try {
+			scan = new Scanner(System.in);
+			return scan.nextInt();
+		}catch(Exception e){
+			System.out.println("Input Tidak Valid");
+			return 0;
+		}
+	}
+	
+}

@@ -1,0 +1,8 @@
+package com.lawencon.minimarket.view;
+
+public class LoginView {
+	private static UserService userService = new UserServiceImpl();
+	public static void LoginView() {
+		
+	}
+}

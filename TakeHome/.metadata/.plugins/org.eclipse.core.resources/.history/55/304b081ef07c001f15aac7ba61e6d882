@@ -1,0 +1,7 @@
+package com.lawencon.minimarket.model;
+
+public class CartDetail {
+	private String name;
+	private Integer subtotal;
+	private Integer qty;
+}

@@ -1,0 +1,34 @@
+package com.lawencon.BookStore;
+
+public class ItemHistory {
+	private String invoiceCode;
+	private String time;
+	private int total_price;
+	
+	public ItemHistory(String invoiceCode, String time, int total_price) {
+		super();
+		this.invoiceCode = invoiceCode;
+		this.time = time;
+		this.total_price = total_price;
+	}
+	public String getInvoiceCode() {
+		return invoiceCode;
+	}
+	public void setInvoiceCode(String invoiceCode) {
+		this.invoiceCode = invoiceCode;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public int getTotal_price() {
+		return total_price;
+	}
+	public void setTotal_price(int total_price) {
+		this.total_price = total_price;
+	}
+	
+	
+}

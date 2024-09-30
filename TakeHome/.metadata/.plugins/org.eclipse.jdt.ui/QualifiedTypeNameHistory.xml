@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.UserService"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.view.LoginView"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.Impl.UserServiceImpl"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.model.User"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.constant.UserConstant"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.view.PembeliView"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.ItemService"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.Impl.ItemServiceImpl"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.model.Category"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.Impl.CategoryServiceImpl"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.util.ScannerUtil"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.model.CartDetail"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.CartService"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.Impl.CartServiceImpl"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.model.Transaksi"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.util.CodeUtil"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.util.DateUtil"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.Impl.TransaksiServiceImpl"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.service.TransaksiService"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.model.Item"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.model.Cart"/>
+    <fullyQualifiedTypeName name="com.lawencon.minimarket.App"/>
+</qualifiedTypeNameHistroy>

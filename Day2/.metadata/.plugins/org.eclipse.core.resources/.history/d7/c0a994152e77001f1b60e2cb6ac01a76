@@ -1,0 +1,17 @@
+package com.lawencon.BookStore;
+
+import java.util.*;
+
+public class History {
+	public final List<ItemHistory> history = new ArrayList<>();
+	
+	public void addHistory(String invoiceCode, String time , double price){
+		history.add(new ItemHistory(invoiceCode, time, price));
+		System.out.println(history.get(0).getInvoiceCode());
+	}
+
+	public List<ItemHistory> getHistory() {
+		return history;
+	}
+	
+}

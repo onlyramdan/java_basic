@@ -1,0 +1,22 @@
+package com.lawencon.minimarket.service.Impl;
+
+import java.util.List;
+
+import com.lawencon.minimarket.model.Transaksi;
+import com.lawencon.minimarket.service.TransaksiService;
+
+public class TransaksiServiceImpl implements TransaksiService {
+
+	@Override
+	public Transaksi addTransaksi(Transaksi trx) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Transaksi> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.lawencon.minimarket.service;
+
+import java.util.List;
+
+import com.lawencon.minimarket.model.Cart;
+
+public interface CartService {
+	Cart addCart(Cart cart);
+	List<Cart> getAll();
+	void deleteOneCart(int i);
+	void updateCart(int i, int itemQty);
+	Integer getGrandTotal();
+}

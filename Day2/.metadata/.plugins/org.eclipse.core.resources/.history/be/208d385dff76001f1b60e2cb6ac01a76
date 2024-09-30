@@ -1,0 +1,46 @@
+package da3;
+
+import java.util.*;
+
+public class TestArrayList {
+	
+	private static List<String> listString = new ArrayList<>();
+	
+	public static void main(String[] args) {	
+		
+		/*
+		 * add 
+		 */
+		
+		listString.add("Apel");
+		listString.add("Jeruk");
+		listString.add("Mangga");
+		listString.add("Nanas");
+		
+		/*
+		 * set
+		 */
+		
+		
+		
+		/*
+		 * remove
+		 */
+		
+		
+		/*
+		 * clear
+		 */
+		
+		
+		/*
+		 * read
+		 */
+		
+		for(String buahs : listString) {
+			System.out.println(buahs);
+		}
+		
+	}
+
+}

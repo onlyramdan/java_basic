@@ -1,0 +1,57 @@
+package com.lawencon.minimarket.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import com.lawencon.minimarket.constant.UserConstant;
+import com.lawencon.minimarket.model.User;
+import com.lawencon.minimarket.service.UserService;
+
+public class UserServiceImpl implements UserService {
+	private List<User> userList = new ArrayList<>();
+
+	@Override
+	public Optional<User> login(String username, String password) {
+		User userPenjual = new User();
+		userPenjual.setPassword(UserConstant.PENJUAL.getUsername());
+		userPenjual.setUsername(UserConstant.PENJUAL.getPassword());
+		userList.add(userPenjual);
+		
+		User userPembeli = new User();
+		userPembeli.setPassword(UserConstant.PEMBELI.getUsername());
+		userPembeli.setUsername(UserConstant.PEMBELI.getPassword());
+		userList.add(userPembeli);
+		
+		User user = new User();
+		if(!isUsernameValid(username)){
+			System.out.print("Username Not Foud !!!");
+			return Optional.ofNullable(user);
+		}
+		if(!isPasswordValid(password)) {
+			System.out.print("Password Invalid !!!");
+			return Optional.ofNullable(user);
+		}
+		
+		return Optional.ofNullable(user);
+	}
+	
+	
+	@SuppressWarnings("unlikely-arg-type")
+	private boolean isUsernameValid(String username) {
+		if(userList.contains(username)) {
+			return true;
+		}
+		return false;
+	}
+
+
+	@SuppressWarnings("unlikely-arg-type")
+	private Boolean isPasswordValid(String password) {
+		if(userList.contains(password)) {
+			return true;
+		}
+		return false;
+	}
+
+}

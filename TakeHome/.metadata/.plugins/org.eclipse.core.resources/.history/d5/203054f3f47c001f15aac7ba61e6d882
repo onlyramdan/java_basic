@@ -1,0 +1,11 @@
+package com.lawencon.minimarket;
+
+import com.lawencon.minimarket.view.LoginView;
+
+public class App {
+
+	public static void main(String[] args) {
+		LoginView.Login();
+	}
+
+}

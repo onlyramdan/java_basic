@@ -1,0 +1,35 @@
+package com.lawencon.minimarket.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lawencon.minimarket.model.Category;
+import com.lawencon.minimarket.service.CategoryService;
+
+public class CategoryServiceImpl implements CategoryService {
+	private List<Category> categoryList = new ArrayList<>();
+
+	@Override
+	public Category addCategories(String category) {
+		Category existCategory=
+		if( ) {
+			
+		}
+		
+		
+	}
+
+	@Override
+	public List<Category> getAll() {
+		return categoryList;
+	}
+	
+	private Category byName(String name){
+		 for (Category category : categoryList) {
+	            if (category.getName().equalsIgnoreCase(name)) {
+	                return category;
+	            }
+	        }
+	        return null;
+	}
+}

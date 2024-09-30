@@ -1,0 +1,36 @@
+package com.lawencon.minimarket.model;
+
+import java.time.LocalDate;
+
+public class Transaksi {
+	private String nomerTransaksi;
+	private LocalDate waktuTransaksi;
+	private Integer grandTotal;
+	
+	public String getNomerTransaksi() {
+		return nomerTransaksi;
+	}
+	public void setNomerTransaksi(String nomerTransaksi) {
+		this.nomerTransaksi = nomerTransaksi;
+	}
+	public LocalDate getWaktuTransaksi() {
+		return waktuTransaksi;
+	}
+	public void setWaktuTransaksi(LocalDate waktuTransaksi) {
+		this.waktuTransaksi = waktuTransaksi;
+	}
+	public Integer getGrandTotal() {
+		return grandTotal;
+	}
+	public void setGrandTotal(Integer grandTotal) {
+		this.grandTotal = grandTotal;
+	}
+	
+	public String toStringList(){
+		String formatList = ("""
+				s%  s%  Rp. %d
+				"""nomerTransaksi, waktuTransaksi.toString(), grandTotal);
+	}
+	
+	
+}

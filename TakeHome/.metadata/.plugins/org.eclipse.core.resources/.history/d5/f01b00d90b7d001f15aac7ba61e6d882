@@ -1,0 +1,41 @@
+package com.lawencon.minimarket.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lawencon.minimarket.model.Item;
+import com.lawencon.minimarket.service.ItemService;
+
+public class ItemServiceImpl implements ItemService {
+	private List<Item> itemList = new ArrayList<>();
+
+	@Override
+	public void addItem(Item itemAdd) {
+		itemList.add(itemAdd);
+	}
+
+	@Override
+	public Item getItem(int index) {
+		return itemList.get(index);
+	}
+
+	@Override
+	public List<Item> getAll() {
+		return itemList;
+	}
+
+	@Override
+	public void deleteOneItem(int index) {
+		itemList.remove(index);
+	}
+
+	@Override
+	public Item updateItem(int index, Item item) {
+		itemList.get(index).setCategory(item.getCategory());
+		itemList.get(index).setName(item.getName());
+		itemList.get(index).setPrice(item.getPrice());
+		itemList.get(index).setStock(item.getStock());
+		return itemList.get(index);
+	}
+
+}

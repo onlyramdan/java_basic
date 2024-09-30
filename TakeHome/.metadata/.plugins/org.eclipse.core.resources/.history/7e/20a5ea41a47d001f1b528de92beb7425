@@ -1,0 +1,191 @@
+package com.lawencon.minimarket.view;
+
+import com.lawencon.minimarket.App;
+import com.lawencon.minimarket.model.CartDetail;
+import com.lawencon.minimarket.model.Category;
+import com.lawencon.minimarket.model.Item;
+import com.lawencon.minimarket.service.CartService;
+import com.lawencon.minimarket.service.Impl.CartServiceImpl;
+import com.lawencon.minimarket.util.ScannerUtil;
+
+public class PembeliView {
+	private static CartService serviceCart = new CartServiceImpl();
+	public static void pembeliShow() {
+		System.out.println("== Menu Pembeli ==");
+		String menuPembeli = """
+				1. View Item
+				2. Cart
+				3. History
+				4. LogOut
+				""";
+		System.out.println(menuPembeli);
+		int option = ScannerUtil.scannerInt("Input Menu :", 1, 4);
+		switch(option) {
+		case 1:
+			viewItem();
+			break;
+		case 2:
+			cart();
+			break;
+		case 3:
+			history();
+			break;
+		case 4:
+			LoginView.login();
+			break;
+		}
+	}
+
+	private static void cart() {
+		System.out.println("== Menu Chart ==");
+		int number = 1;
+		for(CartDetail carts : serviceCart.getAll()) {
+			System.out.print(number+"."+carts.cartListString());
+			number++;
+		}
+		
+		String menuCart = """
+				1. Edit Quatity
+				2. Hapus Belanjaan
+				3. Checkout
+				4. Cancel
+				""";
+		System.out.println(menuCart);
+		int option = ScannerUtil.scannerInt("Input Menu :", 1, 4);
+		switch(option) {
+		case 1:
+			editQuatity();
+			break;
+		case 2:
+			deleteItem();
+			break;
+		case 3:
+			checkout();
+			break;
+		case 4:
+			cancel();
+			break;
+		}
+		
+	}
+
+	private static void editQuatity() {
+		
+	}
+
+	private static void deleteItem() {
+		System.out.println("== Hapus Item ==");
+		int number = 1;
+		for(CartDetail carts : serviceCart.getAll()) {
+			System.out.print(number+"."+carts.cartListString());
+			number++;
+		}
+		
+		int index = ScannerUtil.scannerInt("Input Nomer Item :", 1, number-1);
+		serviceCart.deleteOneCart(index-1);
+		cart();
+	}
+
+	private static void checkout() {
+		
+	}
+
+	private static void cancel() {
+		serviceCart.deleteAll();
+		pembeliShow();	
+	}
+
+	private static void viewItem() {
+		System.out.println("== View Item ==");
+		String menuViewItem = """
+				1. List Jenis Item
+				2. View All Item
+				3. Back
+				""";
+		System.out.println(menuViewItem);
+		int option = ScannerUtil.scannerInt("Input Menu : ", 1, 4);
+		switch(option) {
+		case 1:
+			showCategoryItem();
+			break;
+		case 2:
+			showAllItem();
+			break;
+		case 3:
+			pembeliShow();
+			break;
+		}
+	}
+
+	private static void showAllItem() {
+		int number = 1;
+		for (Item items : App.itemService.getAll()) {
+			System.out.print(number + ".");
+			System.out.print(items.toStringList());
+			number++;
+		}
+		int option = ScannerUtil.scannerInt("Pilih Nomer Item yang ingin dibeli : ", 1, number-1);
+		int qty = ScannerUtil.scannerInt("Input Jumlah :", 0, 100000);
+		if (App.itemService.getQtyItemAndStock(option-1, qty)) {
+			System.out.println("Jumlah melebihi stok");
+			showAllItem();
+		}
+		
+		Item item = App.itemService.getItem(option-1);
+		CartDetail cart = new CartDetail();
+		cart.setName(item.getName());
+		cart.setQty(qty);
+		cart.setSubtotal(item.getPrice()*qty);
+		CartDetail cartadd = serviceCart.addCart(cart);
+		System.out.print(cartadd.detailCartPrint());
+		pembeliShow();
+	}
+
+	private static void showCategoryItem() {
+		System.out.println("== Kategori Barang ==");
+		int number = 1;
+		for (Category category : App.categoryService.getAll()) {
+			System.out.print(number + ".");
+			System.out.println(category.getName());
+			number++;
+		}
+		int option = ScannerUtil.scannerInt("Input Category :", 1, number-1);
+		listCategoryItem(option-1);
+	}
+
+	private static void listCategoryItem(int index) {
+		String category = App.categoryService.getCategory(index);
+		int number = 1;
+		for(Item items : App.itemService.getAll()) {
+			if(items.getCategory().getName().equals(category)) {
+				System.out.print(number+ "." + items.toStringList());
+				number++;
+			}else {
+				System.out.println("Tidak ada Item dengan category ini");
+				showCategoryItem();
+			}
+		}
+		
+		int option= ScannerUtil.scannerInt("Pilih nomer Item yang dibeli :", 1, number-1);
+		int qty = ScannerUtil.scannerInt("Input Jumlah:", 0, 100000);
+		if (App.itemService.getQtyItemAndStock(option-1, qty)) {
+			System.out.println("Jumlah melebihi stok");
+			showAllItem();
+		}
+		
+		Item item = App.itemService.getItem(option-1);
+		CartDetail cart = new CartDetail();
+		cart.setName(item.getName());
+		cart.setQty(qty);
+		cart.setSubtotal(item.getPrice()*qty);
+		CartDetail cartadd = serviceCart.addCart(cart);
+		item.setStock(item.getStock()-qty);
+		App.itemService.getAll().set(option-1, item);
+		System.out.print(cartadd.detailCartPrint());
+		pembeliShow();
+	}
+
+	private static void history() {
+		
+	}
+}

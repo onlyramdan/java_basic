@@ -1,0 +1,20 @@
+package com.lawencon.BookStore;
+
+import java.util.*;
+
+public class History {
+	private final List<ItemHistory> history = new ArrayList<>();
+	
+	public void addHistory(String invoiceCode, String time , double price){
+		history.add(new ItemHistory(invoiceCode, time, price));
+	}
+	
+	public void getHistory() {
+		for(ItemHistory item : history){
+			System.out.print("1." );
+			System.out.print(" Invoice : " + item.getInvoiceCode());
+			System.out.print(" Harga: " + item.getTotal_price());
+			System.out.println(" Date: " + item.getTime());
+		}
+	}
+}

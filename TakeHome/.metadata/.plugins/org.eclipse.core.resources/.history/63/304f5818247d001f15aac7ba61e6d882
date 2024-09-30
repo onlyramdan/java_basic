@@ -1,0 +1,10 @@
+package com.lawencon.minimarket.service;
+
+import java.util.List;
+
+import com.lawencon.minimarket.model.Category;
+
+public interface CategoryService {
+	void addCategories(Category category);
+	List<Category> getAll();
+}

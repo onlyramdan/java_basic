@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Kerja\Bootcamp Lawencon\Java\Day2\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+3413725848.index
+1351100565.index
+1584714973.index
+4051830480.index

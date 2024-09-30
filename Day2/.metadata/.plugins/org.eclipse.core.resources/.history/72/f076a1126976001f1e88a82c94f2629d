@@ -1,0 +1,193 @@
+package com.lawencon.BookStore;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class App {
+	private final List<Item> cart = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		final App app = new App();
+		app.startApp();
+	}
+	
+	private void startApp() {
+		int option;
+		System.out.println("==== Main Menu ====");
+		System.out.println("1. List Book");
+		System.out.println("2. Cart");
+		System.out.println("3. Exit");
+		System.out.print("Input Menu : ");
+		
+		option = ScannerUtil.scanInt();
+		switch(option) {
+			case 1:
+				showBooks();
+			case 2:
+				cartBook();
+			case 3:
+				exit();
+			default:
+				System.out.println("Input Not Valid!");
+				startApp();
+		}
+	}
+	
+	private void showBooks() {
+		int bookNumber = 1;
+		System.out.println("==== List of Books ====");
+		for(Book books: Book.values()) {
+			System.out.print(bookNumber +"."+ books.getName() + " ");
+			System.out.println(books.getPrice());
+			bookNumber++;
+		}
+		buy();
+	}
+	
+	private void buy() {
+		
+		Book[] books = Book.values();
+		
+		System.out.print("Select Book : ");
+		
+		int optionBook = ScannerUtil.scanInt();
+		if ( !(optionBook > 0 && optionBook < 5)) {
+			System.out.println("Book Not Found");
+			showBooks();
+		}
+		
+		System.out.print("Quantity : ");
+		int quantity = ScannerUtil.scanInt();
+		
+		System.out.println("==== Buy Book ====");
+		
+		String name = books[optionBook - 1].getName();
+		System.out.print("Name : " + name + "\t");
+		
+		int totalPrice = books[optionBook - 1].getPrice() * quantity;
+		System.out.println("Total Price : Rp. " + totalPrice);
+		
+		System.out.println("1. Buy");
+		System.out.println("2. Cancel");
+		System.out.print("Input : ");
+		int option = ScannerUtil.scanInt();
+		switch(option) {
+		case 1:
+			Item item = new Item(name, quantity, totalPrice);
+			cart.add(item);
+			System.out.println("=== Succes Buying Books ===");
+			System.out.println("Do you want buy a Book agin ?");
+			System.out.println("1. Yes ");
+			System.out.println("2. No");
+			System.out.print("Input : ");
+			option = ScannerUtil.scanInt();
+			if (option == 1) {	
+				showBooks();
+			}else {
+				System.out.println("Thank you For Buying");
+				startApp();
+			}
+		case 2:
+			showBooks();
+		default :
+			System.out.println("Input Not valid!");
+			showBooks();
+		}
+	}
+	
+	
+	private void cartBook(){
+		System.out.println("==== Cart Book ====");
+		
+		int total_price = 0;
+		
+		if(!(cart.isEmpty())) {
+			for(int i = 0; i< cart.size(); i++) {
+				System.out.println((1+i)+"."+ cart.get(i).getItemName()+ " Qty:" + cart.get(i).getItemQty() + " Total Price: " + cart.get(i).getItemTotalPrice());
+				total_price += cart.get(i).getItemTotalPrice();
+			}
+		} else {
+			System.out.println("Belum Ada Buku");
+		}
+		
+		System.out.println("\n Total Price: "+ total_price + "\n");
+		
+		System.out.println("1. Edit Quantity");
+		System.out.println("2. Remove Book");
+		System.out.println("3. Remove All Book");
+		System.out.println("4. Checkout");
+		System.out.println("5. Back");
+		
+		System.out.print("Input :");
+		int option = ScannerUtil.scanInt() ;
+		
+		switch(option){
+			case 1:
+				editQuantity();
+				break;
+			case 2:
+				removeBook();
+				break;
+			case 3:
+				removeAllBook();
+				break;
+			case 4:
+				checkout();
+				break;
+			case 5:
+				startApp();
+				break;
+			default:
+				System.out.println("Input Not Valid");
+				startApp();
+				break;
+		}
+	
+	}
+	private void editQuantity() {
+		System.out.println("=== Edit Quantity ====");
+		System.out.print("Input Nomer Buku :");
+		int indexBook = ScannerUtil.scanInt() - 1;
+		System.out.print("Input Quantity :");
+		int qty = ScannerUtil.scanInt();
+		int price = 0;
+		String name = cart.get(indexBook).getItemName();
+		for(Book books: Book.values()) {
+			if(books.getName() == name) {
+				price = books.getPrice();
+				break;
+			}
+		}
+		int total_price = price * qty;
+		Item item = new Item(name, qty , total_price);
+		cart.set(indexBook, item);
+		cartBook();
+	}
+	
+	private void removeBook() {
+		System.out.println("=== Remove Book ====");
+		System.out.print("Input Nomer Buku :");
+		int indexBook = ScannerUtil.scanInt() - 1;
+		cart.remove(indexBook);
+		cartBook();
+	}
+	
+	private void removeAllBook() {
+		cart.clear();
+		System.out.println("==== Succes Remove All Book ====");
+		startApp();
+	}
+	
+	private void checkout() {
+		cart.clear();
+		System.out.println("==== Succes Checkout ====");
+		System.out.println("Thanks");
+		startApp();
+	}
+	
+	private void exit() {
+		System.out.println("==== Exit ====");
+		System.exit(0);
+	}
+
+}

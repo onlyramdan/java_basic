@@ -1,0 +1,22 @@
+package com.lawencon.minimarket.model;
+
+import java.util.List;
+
+public class Cart {
+	private List<CartDetail> cart;
+	private Integer grandTotal;
+	public List<CartDetail> getCart() {
+		return cart;
+	}
+	public void setCart(List<CartDetail> cart) {
+		this.cart = cart;
+	}
+	public Integer getGrandTotal() {
+		return grandTotal;
+	}
+	public void setGrandTotal(Integer grandTotal) {
+		this.grandTotal = grandTotal;
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package da3;
+import java.util.*;
+
+public class ListDataCollection {
+    
+    List<String> listData = new ArrayList<String>();
+    List<Integer> listQty = new ArrayList<Integer>();
+    
+    // Constructor to initialize the list
+    public ListDataCollection() {
+        listData.add("ramdan");
+    }
+
+    public static void main(String[] args) {
+        ListDataCollection ldc = new ListDataCollection();
+        System.out.println(ldc.listData); // This will print [ramdan]
+    }
+}

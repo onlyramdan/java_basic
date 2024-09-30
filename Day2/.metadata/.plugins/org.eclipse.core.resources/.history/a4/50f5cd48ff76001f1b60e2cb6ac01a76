@@ -1,0 +1,33 @@
+package da3;
+
+public class TestArrayList {
+
+	public static void main(String[] args) {	
+		
+		/*
+		 * add 
+		 */
+		
+		
+		/*
+		 * set
+		 */
+		
+		
+		
+		/*
+		 * remove
+		 */
+		
+		/*
+		 * clear
+		 */
+		
+		
+		/*
+		 * read
+		 */
+		
+	}
+
+}

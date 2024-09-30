@@ -1,0 +1,5 @@
+package com.lawencon.minimarket.service;
+
+public interface TransaksiService {
+
+}

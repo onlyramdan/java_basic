@@ -1,0 +1,57 @@
+package com.lawencon.minimarket.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lawencon.minimarket.constant.UserConstant;
+import com.lawencon.minimarket.model.User;
+import com.lawencon.minimarket.service.UserService;
+
+public class UserServiceImpl implements UserService {
+	private List<User> userList = new ArrayList<>();
+
+	@Override
+	public Boolean login(String username, String password) {
+		User userPenjual = new User();
+		userPenjual.setPassword(UserConstant.PENJUAL.getUsername());
+		userPenjual.setUsername(UserConstant.PENJUAL.getPassword());
+		userList.add(userPenjual);
+		
+		User userPembeli = new User();
+		userPembeli.setPassword(UserConstant.PEMBELI.getUsername());
+		userPembeli.setUsername(UserConstant.PEMBELI.getPassword());
+		userList.add(userPembeli);
+		
+		User user = new User();
+		user.setPassword(password);
+		user.setUsername(username);
+		if(!isUsernameValid(user)){
+			System.out.print("Username Not Found !!!");
+			return false;
+		}
+		if(!isPasswordValid(user)) {
+			System.out.print("Password Invalid !!!");
+			return false;
+		}
+		return true;
+	}
+	
+	
+	@SuppressWarnings("unlikely-arg-type")
+	private boolean isUsernameValid(User user) {
+		if(userList.contains(user)) {
+			return true;
+		}
+		return false;
+	}
+
+
+	@SuppressWarnings("unlikely-arg-type")
+	private Boolean isPasswordValid(User user) {
+		if(userList.contains(user)) {
+			return true;
+		}
+		return false;
+	}
+
+}

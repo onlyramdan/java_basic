@@ -1,0 +1,62 @@
+package com.lawencon.minimarket.service.Impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lawencon.minimarket.model.Cart;
+import com.lawencon.minimarket.model.CartDetail;
+import com.lawencon.minimarket.service.CartService;
+
+public class CartServiceImpl implements CartService{
+	private List<CartDetail> cartList = new ArrayList<>();
+	private List<Cart> cartTotalList = new ArrayList<>();
+	
+	@SuppressWarnings("unlikely-arg-type")
+	@Override
+	public CartDetail addCart(CartDetail cart) {
+		if(cartList.contains(cart.getName())){
+			int index = cartList.indexOf(cart.getName());
+			int totalQty = cartList.get(index).getQty()+cart.getQty();
+			int price = cartList.get(index).getSubtotal()/cartList.get(index).getQty();
+			cartList.get(index).setQty(totalQty);
+			cartList.get(index).setSubtotal(price*totalQty);
+			return cartList.get(index);
+		}else {
+			cartList.add(cart);
+			return cart;
+		}
+	}
+
+	@Override
+	public List<CartDetail> getAll() {
+		if(cartList.size() == 0) {
+			System.out.println("Belum ada Item di Keranjang");
+		}
+		return cartList;
+	}
+
+	@Override
+	public void deleteOneCart(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCart(int i, int itemQty) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Integer getGrandTotal() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteAll() {
+		cartList.clear();
+		cartTotalList.clear();
+	}
+
+}

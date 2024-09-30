@@ -1,0 +1,18 @@
+package com.lawencon.BookStore;
+
+import java.util.Random;
+
+public class InvoiceCode {
+	private static final String CHRACTER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	private static final int INVOICE_LENGHT = 10;
+	public static String generateCodeInvoice(){
+		StringBuilder invoiceCode = new StringBuilder(INVOICE_LENGHT);
+		Random random = new Random();
+		
+		for(int i= 0; i < INVOICE_LENGHT;i++){
+			int index = random.nextInt(CHRACTER.length());
+			invoiceCode.append(CHRACTER.charAt(index));
+		}
+		return invoiceCode.toString();
+	}
+}

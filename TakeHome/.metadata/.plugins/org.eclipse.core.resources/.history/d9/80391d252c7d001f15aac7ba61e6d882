@@ -1,0 +1,120 @@
+package com.lawencon.minimarket.view;
+
+import java.util.List;
+
+import com.lawencon.minimarket.model.Category;
+import com.lawencon.minimarket.model.Item;
+import com.lawencon.minimarket.service.CategoryService;
+import com.lawencon.minimarket.service.ItemService;
+import com.lawencon.minimarket.service.Impl.CategoryServiceImpl;
+import com.lawencon.minimarket.service.Impl.ItemServiceImpl;
+import com.lawencon.minimarket.util.ScannerUtil;
+
+public class PenjualView {
+	public static ItemService itemService = new ItemServiceImpl();
+	public static CategoryService categoryService = new CategoryServiceImpl();
+
+	public static void penjualShow() {
+		System.out.println("== Menu Penjual ==");
+		String menuPenjual = """
+				1. Transaksi Pembeli
+				2. View Item
+				3. LogOut
+				""";
+		System.out.println(menuPenjual);
+		int option = ScannerUtil.scannerInt("Input Menu :", 1, 3);
+		switch (option) {
+		case 1:
+			break;
+		case 2:
+			viewItem();
+			break;
+		case 3:
+			LoginView.login();
+			break;
+		}
+
+	}
+
+	private static void viewItem() {
+		System.out.println("== View Item ==");
+		String menuViewItem = """
+				1. List Jenis Item
+				2. View All Item
+				3. Tambah Item
+				4. Hapus Item
+				5. Update Item
+				6. Back
+				""";
+		System.out.println(menuViewItem);		
+		int option = ScannerUtil.scannerInt("Input Menu : ", 1, 6);
+		switch(option) {
+		case 1:
+			showCategoryItem();
+			break;
+		case 2:
+			showAllItem();
+			break;
+		case 3:
+			addItem();
+			break;
+		case 4:
+			deleteItem();
+			break;
+		case 5:
+			updateItem();
+			break;
+		case 6:
+			penjualShow();
+			break;
+		}
+	}
+
+	private static void updateItem() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void deleteItem() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void showAllItem() {
+		int number = 1;
+		for (Item items : itemService.getAll()) {
+			System.out.print(number + ".");
+			System.out.println(items.toStringList());
+			number++;
+		}
+		viewItem();
+		
+	}
+
+	private static void showCategoryItem() {
+		int number = 1;
+		for (Category category : categoryService.getAll()) {
+			System.out.print(number + ".");
+			System.out.println(category.getName());
+			number++;
+		}
+		viewItem();
+	}
+
+	private static void addItem() {
+		System.out.println("== Tambah Barang ==");
+		Item item = new Item();
+		Category category = new Category();
+		String name = ScannerUtil.scannerStr("Input Nama Barang : ");
+		item.setName(name);
+		int price = ScannerUtil.scannerInt("Input Harga Barang : Rp. ", 0, 10000000);
+		item.setPrice(price);
+		int stok = ScannerUtil.scannerInt("Input Stock Barang : ", 0, 100);
+		item.setStock(stok);
+		String categoryItem = ScannerUtil.scannerStr("Input Jenis Barang : ");
+		category = categoryService.addCategories(categoryItem);
+		item.setCategory(category);
+		System.out.println(itemService.addItem(item).toString());
+		penjualShow();
+	}
+}

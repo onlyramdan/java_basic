@@ -1,0 +1,21 @@
+package da3;
+import java.util.*;
+
+public class ListDataCollection {
+    
+
+    
+   
+    public static void main(String[] args) {
+	    List<String> listData = new ArrayList<String>();
+	    List<String> listQty = new ArrayList<String>();
+	    listData.add("ramdan");
+	    listData.add("Ilham");
+	    
+	    for(int i = 0; i< listData.size() ; i++) {
+	    	System.out.println(listData.get(i));
+	    }
+	    
+	    
+    }
+}

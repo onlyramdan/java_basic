@@ -1,0 +1,7 @@
+package com.lawencon.minimarket.service.Impl;
+
+import com.lawencon.minimarket.service.TransaksiService;
+
+public class TransaksiServiceImpl implements TransaksiService {
+
+}

@@ -1,0 +1,14 @@
+package da3;
+import java.io.*;
+import java.util.*;
+
+public class ListDataCollection {
+	
+	List<String> listData = new ArrayList<String>();
+	List<Integer> listQty = new ArrayList<>();
+	
+	listData
+	
+	
+
+}

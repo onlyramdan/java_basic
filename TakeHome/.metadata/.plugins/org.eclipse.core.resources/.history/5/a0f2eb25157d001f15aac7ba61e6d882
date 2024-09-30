@@ -1,0 +1,21 @@
+package com.lawencon.minimarket.model;
+
+import java.util.List;
+
+public class Category {
+	private String name;
+	private List<Item> items;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public List<Item> getItem() {
+		return items;
+	}
+	public void setItem(List<Item> item) {
+		this.items = item;
+	}
+}

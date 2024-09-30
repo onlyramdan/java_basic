@@ -1,0 +1,26 @@
+package com.lawencon.BookStore;
+
+public enum DiscountCode {
+	BERKAH("BERKAH", 0.03), HEBAT("HEBAT", 0.2), BIASA("BIASA", 0.5);
+	
+	private String code;
+	private boolean discount;
+	
+	private DiscountCode (String code, boolean discount) {
+		this.code = code;
+		this.discount = discount;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public boolean getDiscount() {
+		return discount;
+	}
+	public void setDiscount(boolean discount) {
+		this.discount = discount;
+	}
+	
+}

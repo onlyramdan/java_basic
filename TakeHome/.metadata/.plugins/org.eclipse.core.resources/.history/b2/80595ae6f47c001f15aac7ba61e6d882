@@ -1,0 +1,20 @@
+package com.lawencon.minimarket.view;
+
+import java.util.Optional;
+
+import com.lawencon.minimarket.model.User;
+import com.lawencon.minimarket.service.UserService;
+import com.lawencon.minimarket.service.Impl.UserServiceImpl;
+import com.lawencon.minimarket.util.ScannerUtil;
+
+public class LoginView {
+	private static UserService userService = new UserServiceImpl();
+	public static void LoginView() {
+		String username = ScannerUtil.scannerStr("Input Username :");
+		String password = ScannerUtil.scannerStr("Input Password :");
+		Optional<User> user = userService.login(username, password);
+		if(user.isPresent()) {
+			
+		}
+	}
+}
